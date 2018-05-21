@@ -1,0 +1,78 @@
+<h1>Employees Management</h1>
+<div *ngIf="show">
+    <h1>Add Employees</h1>
+    <button mat-raised-button color="primary" (click)="show = !show">Hide Form</button>
+    <form (ngSubmit)="addEmployee()" [formGroup]="employeeForm" class="example-form">
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width">
+          <input matInput placeholder="Name" formControlName='employeeName'>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <input matInput placeholder="Company" formControlName='employeeCompany'>
+        </mat-form-field></td>
+      </tr></table>
+    
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width">
+          <input matInput placeholder="Age" formControlName='employeeAge'>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <input matInput placeholder="Birthday" formControlName='employeeBirthday'>
+        </mat-form-field></td>
+      </tr></table>
+    
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width">
+          <input  type="color" matInput placeholder="Favorite Color" formControlName='employeeFavoriteColor'>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <input matInput placeholder="Project" formControlName='employeeProject'>
+        </mat-form-field></td>
+      </tr></table>
+      <table>
+        <tr>
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+        </tr>
+      </table>
+    </form>
+    
+  
+  </div>
+
+<div class="card" >
+  <table class="list">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Age</th>
+        <th>Birthday</th>
+        <th>Favorite Color</th>
+        <th>Project</th>
+        <button mat-mini-fab color="primary" (click)="show = !show">+</button>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employee$ | async">
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.company}}</td>
+        <td>{{employee.age}}</td>
+        <td>{{employee.birthday}}</td>
+        <td>
+          <div class= "color" [style.backgroud]='employee.favoriteColor'>
+            
+          </div>
+          {{employee.favoriteColor}}
+        </td>
+        <td>{{employee.project}}</td>
+        <td><button (click)="deleteEmployee(employee)" mat-mini-fab color="warn">X</button></td>
+  
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+

@@ -1,0 +1,22 @@
+<div class="card">
+  <form (ngSubmit)="validate()" [formGroup]="loginForm" class="example-form">
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width">
+        <input matInput placeholder="User" formControlName='User' required>
+      </mat-form-field></td></tr></table>
+      <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width">
+        <input type="password" matInput placeholder="Password" formControlName='Password' required>
+      </mat-form-field></td>
+    </tr></table>
+    <table>
+      <tr>
+        <button mat-raised-button color="primary" type="submit">Login</button>
+        admin - 12345
+      </tr>
+    </table>
+</form>
+</div>
+
+
+  
